@@ -1,6 +1,7 @@
 import * as vscode from 'vscode';
 import * as fs from 'fs';
 import * as path from 'path';
+import { updateMainFile } from '../utils/rustUtils';
 
 /**
  * This function updates the  `mod.rs` file inside the module when a new Rust file is created, to include the new module declaration.
@@ -21,7 +22,8 @@ export function rustFileCreateWatcherForModules(): vscode.FileSystemWatcher {
 		) {
 			const modContent = fs.readFileSync(parentModPath, 'utf8');
 			if (!modContent.includes(`pub mod ${fileName};`)) {
-				fs.appendFileSync(parentModPath, `\npub mod ${fileName};`);
+				// fs.appendFileSync(parentModPath, `\npub mod ${fileName};`);
+				updateMainFile(vscode.Uri.file(parentModPath), fileName, false); // update the parent mod.rs to include the new module declaration
 			}
 		}
 	});

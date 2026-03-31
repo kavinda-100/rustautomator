@@ -7,8 +7,13 @@ import { isRustProject } from '../utils/rustUtils';
  * This function updates the main.rs or lib.rs file to include the new module declaration.
  * @param mainFileUri The path of the directory
  * @param folderName The name of the folder needs to be create
+ * @param isMainFile Whether the file is main.rs (true) or lib.rs (false)
  */
-async function updateMainFile(mainFileUri: vscode.Uri, folderName: string) {
+async function updateMainFile(
+	mainFileUri: vscode.Uri,
+	folderName: string,
+	isMainFile: boolean = true,
+) {
 	const document = await vscode.workspace.openTextDocument(mainFileUri);
 	const text = document.getText();
 	const lines = text.split(/\r?\n/);
@@ -24,7 +29,9 @@ async function updateMainFile(mainFileUri: vscode.Uri, folderName: string) {
 	}
 
 	const edit = new vscode.WorkspaceEdit();
-	const newModDeclaration = `mod ${folderName};\n`;
+	const newModDeclaration = isMainFile
+		? `mod ${folderName};\n`
+		: `pub mod ${folderName};\n`;
 
 	if (lastImportOrModLine !== -1) {
 		// Insert after the last found import/mod
@@ -80,9 +87,9 @@ export async function createRustModule(uri: vscode.Uri) {
 	const libPath = path.join(srcDir, 'lib.rs');
 
 	if (fs.existsSync(mainPath)) {
-		await updateMainFile(vscode.Uri.file(mainPath), folderName);
+		await updateMainFile(vscode.Uri.file(mainPath), folderName, true);
 	} else if (fs.existsSync(libPath)) {
-		await updateMainFile(vscode.Uri.file(libPath), folderName);
+		await updateMainFile(vscode.Uri.file(libPath), folderName, true); // this is the main for library projects, so we use mod instead of pub mod
 	} else {
 		vscode.window.showWarningMessage(
 			'No main.rs or lib.rs found in src. Please add the module declaration manually.',
