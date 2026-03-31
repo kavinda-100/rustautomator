@@ -17,14 +17,14 @@ export function isRustProject(): boolean {
 }
 
 /**
- * This function updates the main.rs or lib.rs file to include the new module declaration.
+ * This function updates the main.rs or lib.rs or mod.rs file to include the new module declaration.
  * @param mainFileUri The path of the directory
- * @param folderName The name of the folder needs to be created
- * @param isMainFile Whether the file is main.rs (true) or lib.rs (false)
+ * @param moduleName The name of the folder needs to be created or append to the main.rs or lib.rs or mod.rs file
+ * @param isMainFile Whether the file is main.rs (true) or mod.rs (false)
  */
 export async function updateMainFile(
 	mainFileUri: vscode.Uri,
-	folderName: string,
+	moduleName: string,
 	isMainFile: boolean = true,
 ) {
 	const document = await vscode.workspace.openTextDocument(mainFileUri);
@@ -43,8 +43,8 @@ export async function updateMainFile(
 
 	const edit = new vscode.WorkspaceEdit();
 	const newModDeclaration = isMainFile
-		? `mod ${folderName};\n`
-		: `pub mod ${folderName};\n`;
+		? `\nmod ${moduleName};\n`
+		: `\npub mod ${moduleName};\n`;
 
 	if (lastImportOrModLine !== -1) {
 		// Insert after the last found import/mod

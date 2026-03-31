@@ -23,7 +23,7 @@ export function rustFileCreateWatcherForModules(): vscode.FileSystemWatcher {
 			const modContent = fs.readFileSync(parentModPath, 'utf8');
 			if (!modContent.includes(`pub mod ${fileName};`)) {
 				// fs.appendFileSync(parentModPath, `\npub mod ${fileName};`);
-				updateMainFile(vscode.Uri.file(parentModPath), fileName, false); // update the parent mod.rs to include the new module declaration
+				updateMainFile(vscode.Uri.file(parentModPath), fileName, false);
 			}
 		}
 	});
