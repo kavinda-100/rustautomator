@@ -53,7 +53,7 @@ Accelerate your development with pre-built, production-ready snippets for common
 1. Create a new `.rs` file inside any of your module folders.
 2. _Result:_ Watch the parent `mod.rs` update automatically in the background.
 
-![Create Module Demo And Sub-file Registration](public/RustAutomator.gif)
+![Create Module Demo And Sub-file Registration](https://raw.githubusercontent.com/kavinda-100/RustAutomator/main/public/RustAutomator.gif)
 
 ### Using Snippets
 
@@ -62,7 +62,7 @@ Accelerate your development with pre-built, production-ready snippets for common
 3. Select the snippet from the suggestion list and press `Tab`.
 4. Use `Tab` to jump between the placeholder fields (like function names or types).
 
-![Using Snippets](public/RustAutomatorCodeSnippets.gif)
+![Using Snippets](https://raw.githubusercontent.com/kavinda-100/RustAutomator/main/public/RustAutomatorCodeSnippets.gif)
 
 ---
 
