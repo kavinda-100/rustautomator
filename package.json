@@ -43,7 +43,7 @@
 		"snippets": [
 			{
 				"language": "rust",
-				"path": "./src/snippets/rust-snippets.json"
+				"path": "./snippets/rust-snippets.json"
 			}
 		]
 	},
