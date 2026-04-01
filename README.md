@@ -2,7 +2,7 @@
 
 **Stop fighting with boilerplate. Start writing Rust.**
 
-RustAutomator is a productivity-first VS Code extension designed to eliminate the repetitive manual work of managing Rust module structures. Whether you are building a CLI tool, a web server, or a high-performance Web3 program, RustAutomator keeps your project structure in sync with your code.
+RustAutomator is a productivity-first VS Code extension designed to eliminate the repetitive manual work of managing Rust module structures and common code patterns. Whether you are building a CLI tool, a web server, or a high-performance Web3 program, RustAutomator keeps your project structure and code logic in sync.
 
 ---
 
@@ -13,7 +13,7 @@ RustAutomator is a productivity-first VS Code extension designed to eliminate th
 Tired of manually creating a folder, adding a `mod.rs`, and then registering it in `main.rs`?
 
 - **The Workflow:** Right-click the `src` folder > **"Create Rust Module Folder"**.
-- **The Automation:** \* Creates the directory and an empty `mod.rs` file.
+- **The Automation:** - Creates the directory and an empty `mod.rs` file.
     - Automatically injects `mod <folder_name>;` into your `main.rs` or `lib.rs`.
     - **Smart Placement:** It intelligently scans for existing imports and module declarations, placing the new line exactly where it belongs—keeping your code clean and organized.
 
@@ -24,6 +24,18 @@ Adding a new logic file shouldn't require a trip back to the parent module file.
 - **The Workflow:** Just create a new `.rs` file (e.g., `auth.rs`) inside any folder containing a `mod.rs`.
 - **The Automation:** RustAutomator detects the new file and instantly appends `pub mod <file_name>;` to the parent `mod.rs`.
 - **Safe Sync:** It intelligently ignores `main.rs`, `lib.rs`, and `mod.rs` to ensure your module tree remains valid and circular-dependency free.
+
+### 3. Code Snippets
+
+Accelerate your development with pre-built, production-ready snippets for common Rust patterns, specifically optimized for async and Axum workflows.
+
+- **The Workflow:** Type a short prefix in any `.rs` file and press `Tab` or `Enter`.
+- **The Automation:**
+    - **`pafn`**: Generates a public async function returning an empty `Result`.
+    - **`strimp`**: Generates a struct with `Debug` and `Clone` derives, along with a static `new()` constructor.
+    - **`axh`**: Generates a complete Axum route handler with `State` and `Json` extractors.
+    - **`matchr`**: Generates a verbose `match` block for `Result` types with built-in error printing.
+    - **`tmod` / `tfn`**: Quickly scaffolds test modules or individual async test functions using `tokio::test`.
 
 ---
 
@@ -40,6 +52,13 @@ Adding a new logic file shouldn't require a trip back to the parent module file.
 
 1. Create a new `.rs` file inside any of your module folders.
 2. _Result:_ Watch the parent `mod.rs` update automatically in the background.
+
+### Using Snippets
+
+1. Open any `.rs` file.
+2. Type a prefix like `axh` or `pafn`.
+3. Select the snippet from the suggestion list and press `Tab`.
+4. Use `Tab` to jump between the placeholder fields (like function names or types).
 
 ---
 
