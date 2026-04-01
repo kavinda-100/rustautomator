@@ -13,9 +13,12 @@
 	"cSpell.words": [
 		"automator",
 		"lifecycles",
+		"matchr",
 		"pafn",
 		"rustautomator",
 		"strim",
-		"strimp"
+		"strimp",
+		"tmod",
+		"tprintln"
 	]
 }

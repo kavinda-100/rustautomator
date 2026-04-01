@@ -16,11 +16,60 @@
 			"}",
 			"",
 			"impl ${1:Name} {",
-			"\tpub fn new(&self) -> Self {",
+			"\tpub fn new() -> Self {",
 			"\t\tSelf {}",
 			"\t}",
 			"}"
 		],
 		"description": "Generate a struct and its impl block with a new() method"
+	},
+	"Axum Handler Function": {
+		"prefix": "axh",
+		"body": [
+			"pub async fn ${1:handler_name}(",
+			"\tState(${2:state}): State<${3:AppState}>,",
+			"\tJson(${4:payload}): Json<${5:RequestStruct}>",
+			") -> impl IntoResponse {",
+			"\t${0:(StatusCode::OK, Json(\"Success\"))}",
+			"}"
+		],
+		"description": "Axum route handler boilerplate"
+	},
+	"Match Result": {
+		"prefix": "matchr",
+		"body": [
+			"let res = match ${1:result} {",
+			"\tOk(${2:val}) => ${3:val},",
+			"\tErr(e) => {",
+			"\t\tprintln!(\"Error: {:?}\", e);",
+			"\t}",
+			"}"
+		],
+		"description": "Verbose match for Results with tracing logs"
+	},
+	"Test Module Block": {
+		"prefix": "tmod",
+		"body": [
+			"#[cfg(test)]",
+			"mod tests {",
+			"\tuse super::*;",
+			"",
+			"\t#[tokio::test]",
+			"\tasync fn test_${1:function_name}() {",
+			"\t\t${0:assert!(true);}",
+			"\t}",
+			"}"
+		],
+		"description": "Boilerplate for a test module with async support"
+	},
+	"Test Function Block": {
+		"prefix": "tfn",
+		"body": [
+			"#[tokio::test]",
+			"async fn ${1:function_name}() {",
+			"\t${0:assert!(true);}",
+			"}"
+		],
+		"description": "Boilerplate for an async test function"
 	}
 }
