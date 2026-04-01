@@ -1,0 +1,26 @@
+{
+	"Public Async Function (Empty Result)": {
+		"prefix": "pafn",
+		"body": [
+			"pub async fn ${1:function_name}() -> Result<(), ${2:std::fmt::Error}> {",
+			"\t${0:todo!()}",
+			"}"
+		],
+		"description": "Generate a public async function returning an empty Result"
+	},
+	"Struct with Impl New": {
+		"prefix": "strim",
+		"body": [
+			"#[derive(Debug, Clone)]",
+			"pub struct ${1:Name} {",
+			"}",
+			"",
+			"impl ${1:Name} {",
+			"\tpub fn new(&self) -> Self {",
+			"\t\tSelf {}",
+			"\t}",
+			"}"
+		],
+		"description": "Generate a struct and its impl block with a new() method"
+	}
+}

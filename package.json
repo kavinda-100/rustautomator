@@ -38,7 +38,13 @@
 					"group": "navigation"
 				}
 			]
-		}
+		},
+		"snippets": [
+			{
+				"language": "rust",
+				"path": "./src/snippets/rust-snippets.json"
+			}
+		]
 	},
 	"scripts": {
 		"vscode:prepublish": "npm run package",
