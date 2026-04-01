@@ -43,8 +43,8 @@ export async function updateMainFile(
 
 	const edit = new vscode.WorkspaceEdit();
 	const newModDeclaration = isMainFile
-		? `\nmod ${moduleName};\n`
-		: `\npub mod ${moduleName};\n`;
+		? `mod ${moduleName};\n`
+		: `pub mod ${moduleName};\n`;
 
 	if (lastImportOrModLine !== -1) {
 		// Insert after the last found import/mod
