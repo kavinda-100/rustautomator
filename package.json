@@ -4,6 +4,7 @@
 	"description": "Boost your Rust productivity by automating tedious boilerplate",
 	"version": "0.0.1",
 	"publisher": "kavindarathnayake",
+	"license": "MIT",
 	"engines": {
 		"vscode": "^1.110.0"
 	},
