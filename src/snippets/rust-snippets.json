@@ -9,7 +9,7 @@
 		"description": "Generate a public async function returning an empty Result"
 	},
 	"Struct with Impl New": {
-		"prefix": "strim",
+		"prefix": "strimp",
 		"body": [
 			"#[derive(Debug, Clone)]",
 			"pub struct ${1:Name} {",

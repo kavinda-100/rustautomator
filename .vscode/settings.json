@@ -15,6 +15,7 @@
 		"lifecycles",
 		"pafn",
 		"rustautomator",
-		"strim"
+		"strim",
+		"strimp"
 	]
 }
